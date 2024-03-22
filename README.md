@@ -18,6 +18,7 @@ This service was designed to facilitate CRUD operations for user management, exe
 - Delete a user
 - Authentication user using ApiKey authorization
 - File Logging for each request with specific format data
+- Unit testing - Some test cases for user service applications
 
 ### More details in tech stack, libraries, and techniques that are used in development:
 - Framework - EntityFramework Core
@@ -25,7 +26,9 @@ This service was designed to facilitate CRUD operations for user management, exe
 - Logging - Serilog
 - Repository - Generic Repository
 - Exceptions - Global Middleware
+- Validations - Fluent Validations
 - Mapper - AutoMapper
+- Unit testing - XUnit framework
 
 ## How to test this project in your local environment:
 1. Clone this project from the repository
@@ -34,3 +37,4 @@ This service was designed to facilitate CRUD operations for user management, exe
 4. Run the project in Visual Studio or another editor
 
 ## Short video from my testing cases
+https://drive.google.com/file/d/1yNe9WEZxxhtykm3Y-n1Org7ok-POcZo1/view?usp=sharing
