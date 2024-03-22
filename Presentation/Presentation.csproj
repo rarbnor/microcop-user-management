@@ -33,9 +33,11 @@
   <ItemGroup>
     <None Remove="Authentication\" />
     <None Remove="Extensions\" />
+    <None Remove="logs\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
     <Folder Include="Extensions\" />
+    <Folder Include="logs\" />
   </ItemGroup>
 </Project>

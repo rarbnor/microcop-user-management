@@ -2,7 +2,6 @@
 {
 	public class UserUpdateModel
 	{
-        public Guid Id { get; set; }
         public string Fullname { get; set; } = string.Empty;
         public string MobileNumber { get; set; } = string.Empty;
         public string Language { get; set; } = string.Empty;

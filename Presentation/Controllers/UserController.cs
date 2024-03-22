@@ -36,14 +36,14 @@ public class UserController : ControllerBase
         return Ok(user);
     }
 
-    [HttpPut]
-    public async Task<ActionResult<UserModel?>> UpdateUser([FromBody] UserUpdateModel userUpdateModel)
+    [HttpPut("{id}")]
+    public async Task<ActionResult<UserModel?>> UpdateUser(Guid id, [FromBody] UserUpdateModel userUpdateModel)
     {
         if (!ModelState.IsValid)
             return BadRequest(new { message = "Model is not valid!" });
 
-        var userModel = await _userService.UpdateUser(userUpdateModel);
-        if (userModel is null) return NotFound($"The user with Id:{userUpdateModel.Id} does not exist!");
+        var userModel = await _userService.UpdateUser(id, userUpdateModel);
+        if (userModel is null) return NotFound($"The user with Id:{id} does not exist!");
         return Ok(userModel);
     }
 

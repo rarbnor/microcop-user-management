@@ -13,11 +13,13 @@ namespace Application.Services
         private readonly IGenericRepository<User> _userRepository;
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
+        private readonly int _iteration = 3;
 
         public UserService(IGenericRepository<User> userRepository, IMapper mapper, IConfiguration configuration)
         {
             _userRepository = userRepository;
             _mapper = mapper;
+
             _configuration = configuration;
         }
 
@@ -33,16 +35,16 @@ namespace Application.Services
 
             var user = _mapper.Map<User>(userModel);
             user.PasswordSalt = PasswordHasher.GenerateSalt();
-            user.PasswordHash = PasswordHasher.ComputeHash(userModel.Password, user.PasswordSalt, pepper);
+            user.PasswordHash = PasswordHasher.ComputeHash(userModel.Password, user.PasswordSalt, pepper, _iteration);
 
             await _userRepository.CreateAsync(user);
             return _mapper.Map<UserModel>(user);
         }
 
 
-        public async Task<UserModel?> UpdateUser(UserUpdateModel userUpdateModel)
+        public async Task<UserModel?> UpdateUser(Guid id, UserUpdateModel userUpdateModel)
         {
-            var user = await GetUserById(userUpdateModel.Id);
+            var user = await GetUserById(id);
             if (user is null) return null;
 
             var userUpdate = _mapper.Map(userUpdateModel, user);
