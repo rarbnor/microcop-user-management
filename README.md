@@ -1,6 +1,6 @@
-# MicrocopUserManagement Service
+# Microcop User Management Service
 
-## The Functionality of MicrocopUserManagement REST API
+## The Functionality of Microcop User Management REST API
 
 This service was designed to facilitate CRUD operations for user management, exemplifying the development of a REST API in C#/.NET Core.
 
